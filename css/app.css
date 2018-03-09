@@ -1,0 +1,334 @@
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background-color: #ACC0C1;
+}
+
+.container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 450px) {
+    .container {
+        box-shadow: 1px 1px 20px #666;
+    }
+}
+
+.level {
+    position: relative;
+    min-width: 320px;
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+.level_0 {
+    background-image: url(../img/level_0_bg.jpg);
+    height: 180px;
+    position: relative;
+}
+
+.level_0:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../img/logo.png) no-repeat center 25px;
+    background-size: contain;
+    pointer-events: none;
+}
+
+.level_1 {
+    background-image: url(../img/level_1_bg.png);
+    height: 235px;
+}
+
+.level_2 {
+    background-image: url(../img/level_2_bg.png);
+    height: 235px;
+}
+
+.level_3 {
+    background-image: url(../img/level_3_bg.png);
+    height: 235px;
+}
+
+.level_4 {
+    background-image: url(../img/level_4_bg.png);
+    height: 75px;
+}
+
+.door {
+    position: absolute;
+    bottom: 0;
+    background: url(../img/door.png) no-repeat top left;
+    width: 64px;
+    height: 100px;
+
+    cursor: pointer;
+}
+
+.door_locked {
+    background: url(../img/door_locked.png) no-repeat top left;
+}
+
+.door_disabled {
+    opacity: .7;
+}
+
+.door_level_0 {
+    right: 2%;
+}
+
+.door_level_1 {
+    left: 2%;
+}
+
+.door_level_2 {
+    right: 2%;
+}
+
+.box {
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+
+    background: url('../img/box.png') no-repeat top left;
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    background-color: rgba(0,0,0,.3);
+    transition: opacity .3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup_hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.popup__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+
+    background: #000 url(../img/door_level_0.jpg) no-repeat center;
+    background-size: cover;
+}
+
+.popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 24px;
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.popup__content_level_3 {
+    background-image: url(../img/sea_bg.jpg);
+    background-size: cover;
+}
+
+.popup__content_level_3 .popup__close {
+    color: #000;
+}
+
+.door-riddle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.door-riddle__button {
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    background-color: #583319;
+    border: 1px solid #F3E9E0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+
+    transition: background-color .3s;
+}
+
+.door-riddle__button_pressed {
+    background-color: #F3E5D9;
+}
+
+.door-with-flags {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    flex-direction: column;
+}
+
+.door-with-flags-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.door-with-flags-container > .line {
+    position: relative;
+    background-color: #fff;
+    border: 2px solid;
+    height: 20px;
+    display: flex;
+    flex-grow: 1;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.door-with-flags-container > .line-right-flag-position {
+    background-color: #02da02;
+}
+
+.door-with-flags__flag {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    height: 30px;
+    width: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+    touch-action: none;
+}
+
+.door-with-flags__flag_0 {
+    background-image: url(../img/flagRed1.png);
+}
+
+.door-with-flags__flag_1 {
+    background-image: url(../img/flagGreen1.png);
+}
+
+.door-with-flags__flag_2 {
+    background-image: url(../img/flagBlue1.png);
+}
+
+.agility-door__button {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+    border: 4px solid #fff;
+    font-size: 4em;
+    border-radius: 100%;
+    background-color: rgba(75, 0, 255, 0.8);
+}
+
+.agility-door__button_pressed {
+    background-color: rgba(75, 0, 255, 1);
+}
+
+.agility-door {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.agility-door-additional-info {
+    display: flex;
+    flex-grow: 1;
+    color: #fff;
+    font-size: 6em;
+    align-items: center;
+}
+
+.agility-door-user-points {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    color: #52ff00;
+    font-size: 3em;
+}
+
+.agility-door-remained-time {
+    padding-top: 10px;
+    font-size: 3em;
+    color: red;
+    font-weight: bold;
+}
+
+.agility-door-block {
+    display: flex;
+    flex-grow: 1;
+}
+
+.agility-door-block_1 {
+    align-items: flex-end;
+}
+
+.agility-door-block_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.box-door {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box-door-progress-bar {
+    width: 80%;
+    height: 30px;
+    background: #fff;
+    border-radius: 30px;
+    border: 2px solid #868686;
+    margin-top: 50%;
+}
+
+.box-door-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(../img/sea.png);
+    margin-bottom: -160px;
+}
+
+.box-door-secret__button {
+    display: flex;
+    width: 80px;
+    height: 80px;
+}
